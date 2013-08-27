@@ -15,6 +15,23 @@
  */
 /**
  * Combo to select a tracker.
+ *
+ * # Example usage (requires trackers.json file in /):
+ *
+ *     @example
+ *     var store = Ext.create('NLeSC.eEcology.store.TrackerIds', {
+ *         storeId: 'TrackerIds'
+ *     });
+ *     store.getProxy().url = '/trackers.json';
+ *     Ext.create('NLeSC.eEcology.form.field.TrackerCombo', {
+ *         renderTo: Ext.getBody()
+ *         labelWidth: 50,
+ *         width: 110,
+ *         store: 'TrackerIds',
+ *         queryMode: 'remote',
+ *         triggerAction: 'all',
+ *         typeAhead: true
+ *     });
  */
 Ext.define('NLeSC.eEcology.form.field.TrackerCombo', {
     extend: 'Ext.form.field.ComboBox',
