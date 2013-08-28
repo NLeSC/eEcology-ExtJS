@@ -13,23 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-describe('NLeSC.eEcology.store.TrackerIds', function() {
+describe('NLeSC.eEcology.form.field.TrackerCombo', function() {
     'use strict';
 
     var instance = null, esj = ExtSpec.Jasmine;
 
     beforeEach(function() {
         this.addMatchers(esj.Matchers);
-        instance = ExtSpec.create('NLeSC.eEcology.store.TrackerIds', function() {
+        instance = ExtSpec.create('NLeSC.eEcology.form.field.TrackerCombo', function() {
             ExtSpec.Jasmine.createConfigSpies(this);
         });
     });
 
-    it("fields", function() {
-	    expect(instance.fields).toEqual([{name: 'id', type: 'int'}]);
+    it("fieldLabel", function() {
+        expect(instance.fieldLabel).toEqual('Tracker');
     });
 
-    it('should have a default url', function() {
-        expect(instance.proxy.url).toEqual('../../trackers.json');
+    it('display field', function() {
+        expect(instance.displayField).toEqual('id');
     });
 });

@@ -1,4 +1,7 @@
 ext/
+reports/
 coverage/
-test-results.xml
 build/
+.project
+.settings/
+docs/
