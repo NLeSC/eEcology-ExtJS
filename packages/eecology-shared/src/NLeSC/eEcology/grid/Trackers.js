@@ -18,6 +18,7 @@
  */
 Ext.define('NLeSC.eEcology.grid.Trackers', {
     extend: 'Ext.grid.Panel',
+    alias: 'widget.trackersgrid',
     requires: ['NLeSC.eEcology.store.Projects', 'NLeSC.eEcology.store.Species',
             'NLeSC.eEcology.store.Trackers', 'Ext.ux.grid.FiltersFeature'],
     features: [{
