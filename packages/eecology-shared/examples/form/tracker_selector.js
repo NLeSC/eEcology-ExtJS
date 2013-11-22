@@ -1,5 +1,4 @@
 Ext.Loader.setConfig({
-    disableCaching: true,
     enabled: true,
     paths: {
         'Ext.ux': '../../../../ext/src/ux'
@@ -121,13 +120,39 @@ Ext.onReady(function() {
 
     Ext.create('Ext.form.Panel', {
         renderTo: 'grid-example',
-        height: 650,
+        height: 350,
         width: 800,
         bodyPadding: '5 5 0',
         items: [{
             xtype: 'trackergridselector',
             buttons: ['add', 'remove'],
             toGrid: selected_trackers
+        }],
+        buttons: [{
+            text: 'Save',
+            handler: function() {
+                var form = this.up('form').getForm();
+                if (form.isValid()) {
+                    console.log(form.getFieldValues());
+                } else {
+                    console.log('Invalid form');
+                }
+            }
+        }, {
+            text: 'Cancel',
+            handler: function() {
+                this.up('form').getForm().reset();
+            }
+        }]
+    });
+
+    Ext.create('Ext.form.Panel', {
+        renderTo: 'default-selector',
+        height: 350,
+        width: 800,
+        bodyPadding: '5 5 0',
+        items: [{
+            xtype: 'trackergridselector'
         }],
         buttons: [{
             text: 'Save',

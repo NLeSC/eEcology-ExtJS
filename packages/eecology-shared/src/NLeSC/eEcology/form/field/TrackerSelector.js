@@ -164,10 +164,32 @@ Ext.define('NLeSC.eEcology.form.field.TrackerSelector', {
 
         return grid;
     },
+    createToGridConfig: function() {
+        var me  = this;
+        var store = Ext.create('Ext.data.Store', {
+            model: me.fromField.getStore().model
+        });
+        var columns = [];
+        me.fromField.columns.forEach(function(col) {
+           columns.push(col.cloneConfig());
+        });
+        return {
+            title: 'Selected',
+            store: store,
+            multiSelect: true,
+            columns: columns
+        };
+    },
     setupItems: function() {
         var me = this;
 
         me.ddGroup = 'TrackerGridSelectorDD-'+Ext.id();
+
+        me.fromField = me.createFromGrid();
+
+        if (!('toGrid' in me)) {
+            me.toGrid =  me.createToGridConfig();
+        }
 
         if (!me.toGrid.viewConfig) {
             me.toGrid.viewConfig = {};
@@ -175,7 +197,6 @@ Ext.define('NLeSC.eEcology.form.field.TrackerSelector', {
         me.toGrid.viewConfig.emptyText = me.blankText;
         me.toGrid.viewConfig.deferEmptyText = false;
 
-        me.fromField = me.createFromGrid();
         me.toField = me.createList(me.toGrid);
 
         var toStore = me.toField.store;
