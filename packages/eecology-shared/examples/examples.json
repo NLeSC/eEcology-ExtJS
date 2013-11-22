@@ -1,6 +1,6 @@
 [
     {
-        "title": "eEcology shared Examples",
+        "title": "Forms",
         "items": [
             {
                 "name": "tracker-combo",
@@ -10,6 +10,25 @@
                 "icon": "shared/screens/grid-filter.gif",
                 "status": "new"
             }, {
+                "name": "tracker-grid",
+                "title": "Grid of Trackers",
+                "description": "Grid of Trackers",
+                "url": "form/tracker_grid.html",
+                "icon": "shared/screens/grid-filter.gif",
+                "status": "new"
+            }, {
+                "name": "tracker-selector",
+                "title": "Selector of Trackers",
+                "description": "Select trackers by moving between available and selected grid",
+                "url": "form/tracker_selector.html",
+                "icon": "shared/screens/grid-filter.gif",
+                "status": "new"
+            }
+        ]
+    }, {
+        "title": "Grids",
+        "items": [
+            {
                 "name": "grid-trackers",
                 "title": "Grid of Trackers",
                 "description": "Grid of trackers",
