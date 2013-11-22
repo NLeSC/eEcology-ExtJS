@@ -22,13 +22,12 @@ Ext.onReady(function() {
 
     Ext.create('Ext.form.Panel', {
         renderTo: 'grid-example',
-        height: 650,
+        height: 350,
         width: 800,
         bodyPadding: '5 5 0',
         items: [{
             xtype: 'trackergridfield',
-//            height: 200,
-            width: 400,
+            width: 400
         }],
         buttons: [{
             text: 'Save',

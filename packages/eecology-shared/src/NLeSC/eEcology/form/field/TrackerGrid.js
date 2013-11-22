@@ -26,11 +26,8 @@ Ext.define('NLeSC.eEcology.form.field.TrackerGrid', {
      * Grid to show.
      */
     grid: {
-        xtype: 'trackersgrid',
-        height: '100%',
-        width: '100%'
+        xtype: 'trackersgrid'
     },
-    layout: 'anchor',
     alias: 'widget.trackergridfield',
     fieldLabel: 'Tracker',
     name: 'id',
@@ -41,6 +38,13 @@ Ext.define('NLeSC.eEcology.form.field.TrackerGrid', {
      */
     blankText: 'No tracker selected',
     msgTarget: 'under',
+    defaults: {flex: 1},
+    layout: {
+        type: 'hbox',
+        align: 'stretch'
+    },
+    autoWidth: true,
+    height: 300,
     initComponent: function() {
         this.grid.selModel = Ext.create('Ext.selection.CheckboxModel', {
             mode: 'SINGLE',
