@@ -16,10 +16,10 @@
 /**
  * Store for tracker identifiers.
  */
-Ext.define('NLeSC.eEcology.store.TrackerIds', {
+Ext.define('NLeSC.eEcology.store.Trackers', {
     extend: 'Ext.data.Store',
-    storeId: 'TrackerIds',
-    fields: [{name: 'id', type: 'int'}],
+    storeId: 'trackers',
+    model: 'NLeSC.eEcology.model.Tracker',
     proxy: {
         type: 'ajax',
         url : '../../trackers.json',

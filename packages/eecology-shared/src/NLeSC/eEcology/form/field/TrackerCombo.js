@@ -36,6 +36,7 @@
 Ext.define('NLeSC.eEcology.form.field.TrackerCombo', {
     extend: 'Ext.form.field.ComboBox',
     alias: 'widget.trackercombo',
+    store: 'trackers',
     displayField: 'id',
     allowBlank: false,
     fieldLabel: 'Tracker',
