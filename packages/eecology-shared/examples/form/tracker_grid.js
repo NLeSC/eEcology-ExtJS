@@ -30,7 +30,7 @@ Ext.onReady(function() {
             width: 400
         }],
         buttons: [{
-            text: 'Save',
+            text: 'Submit',
             handler: function() {
                 var form = this.up('form').getForm();
                 if (form.isValid()) {
@@ -40,9 +40,14 @@ Ext.onReady(function() {
                 }
             }
         },{
-            text: 'Cancel',
+            text: 'Reset',
             handler: function() {
                 this.up('form').getForm().reset();
+            }
+       },{
+            text: 'Select 355',
+            handler: function() {
+                this.up('form').getForm().setValues({id:355});
             }
         }]
     });
