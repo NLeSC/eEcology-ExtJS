@@ -88,7 +88,9 @@ Ext.define('NLeSC.eEcology.form.field.TrackerGrid', {
         model.deselectAll();
     },
     onSelectionChange: function(model, selections) {
-        this.setValue(selections[0].getId());
+        if (selections.length > 0) {
+            this.setValue(selections[0].getId());
+        }
     },
     isValid : function() {
         var me = this,
