@@ -11,6 +11,7 @@ Installation
 ------------
 
 After cloning the `ext/` folder must be filled with a ExtJS SDK.
+Also ext/examples/ux should be copied to ext/src/ux.
 
 Build
 -----
