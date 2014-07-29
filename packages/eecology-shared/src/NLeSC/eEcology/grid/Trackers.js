@@ -53,6 +53,16 @@ Ext.define('NLeSC.eEcology.grid.Trackers', {
         }
     }],
     initComponent: function() {
+        if (!Ext.StoreManager.lookup('trackers')) {
+            Ext.create('NLeSC.eEcology.store.Trackers');
+        }
+        if (!Ext.StoreManager.lookup('projects')) {
+            Ext.create('NLeSC.eEcology.store.Projects');
+        }
+        if (!Ext.StoreManager.lookup('species')) {
+            Ext.create('NLeSC.eEcology.store.Species');
+        }
+
         // Convert store identifiers to actual stores
         this.columns.forEach(function(c) {
             if ('filter' in c && 'store' in c.filter && typeof c.filter.store === 'string') {

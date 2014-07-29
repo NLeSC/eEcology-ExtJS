@@ -41,5 +41,11 @@ Ext.define('NLeSC.eEcology.form.field.TrackerCombo', {
     allowBlank: false,
     fieldLabel: 'Tracker',
     labelAttrTpl : 'data-qtip="Tracker identifier aka device_info_serial"',
-    name: 'id'
+    name: 'id',
+    initComponent: function() {
+        if (!Ext.StoreManager.lookup('trackers')) {
+            Ext.create('NLeSC.eEcology.store.Trackers');
+        }
+        this.callParent();
+    }
 });

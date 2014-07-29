@@ -32,5 +32,6 @@ Ext.define('NLeSC.eEcology.store.Trackers', {
     sorters: [{
          property: 'id',
          direction: 'ASC'
-    }]
+    }],
+    autoLoad: true
 });

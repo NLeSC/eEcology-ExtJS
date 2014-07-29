@@ -20,9 +20,10 @@ describe('NLeSC.eEcology.grid.Trackers', function() {
 
     beforeEach(function() {
         this.addMatchers(esj.Matchers);
+        Ext.StoreManager = jasmine.createSpyObj('StoreManager', ['lookup']);
+        Ext.create = jasmine.createSpy('create');
         instance = ExtSpec.create('NLeSC.eEcology.grid.Trackers', function() {
             this.callParent = jasmine.createSpy('callParent');
-            Ext.StoreManager = jasmine.createSpyObj('StoreManager', ['lookup']);
             ExtSpec.Jasmine.createConfigSpies(this);
         });
     });
@@ -34,8 +35,12 @@ describe('NLeSC.eEcology.grid.Trackers', function() {
     it("initComponent", function() {
         instance.initComponent();
 
-        expect(Ext.StoreManager.lookup).toHaveBeenCalledWith('species');
         expect(Ext.StoreManager.lookup).toHaveBeenCalledWith('projects');
+        expect(Ext.StoreManager.lookup).toHaveBeenCalledWith('trackers');
+        expect(Ext.StoreManager.lookup).toHaveBeenCalledWith('species');
+        expect(Ext.create).toHaveBeenCalledWith('NLeSC.eEcology.store.Projects');
+        expect(Ext.create).toHaveBeenCalledWith('NLeSC.eEcology.store.Species');
+        expect(Ext.create).toHaveBeenCalledWith('NLeSC.eEcology.store.Trackers');
         expect(instance.callParent).toHaveBeenCalled();
     });
 });

@@ -20,9 +20,20 @@ describe('NLeSC.eEcology.form.field.TrackerCombo', function() {
 
     beforeEach(function() {
         this.addMatchers(esj.Matchers);
+        Ext.StoreManager = jasmine.createSpyObj('StoreManager', ['lookup']);
+        Ext.create = jasmine.createSpy('create');
         instance = ExtSpec.create('NLeSC.eEcology.form.field.TrackerCombo', function() {
+            this.callParent = jasmine.createSpy('callParent');
             ExtSpec.Jasmine.createConfigSpies(this);
         });
+    });
+
+    it('initComponent', function() {
+        instance.initComponent();
+
+        expect(Ext.StoreManager.lookup).toHaveBeenCalledWith('trackers');
+        expect(Ext.create).toHaveBeenCalledWith('NLeSC.eEcology.store.Trackers');
+        expect(instance.callParent).toHaveBeenCalled();
     });
 
     it("fieldLabel", function() {
